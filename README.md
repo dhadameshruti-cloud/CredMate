@@ -1,0 +1,2 @@
+# CredMate
+Every Shopkkepers App
