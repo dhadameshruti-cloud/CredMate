@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSmart AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="phone-frame">
+      <section id="authView" class="screen auth-screen active">
+        <div class="hero-card glass-card">
+          <p class="eyebrow">Digital Manager for Modern Shops</p>
+          <h1>ShopSmart AI</h1>
+          <p class="hero-copy">
+            Run customers, pending bills, reminders, and daily collections from one premium mobile workspace.
+          </p>
+          <div class="feature-pills">
+            <span>Vision AI ready</span>
+            <span>Voice billing ready</span>
+            <span>Predictive growth ready</span>
+          </div>
+        </div>
+
+        <div class="auth-tabs glass-card">
+          <button class="tab-btn active" data-auth-tab="login">Login</button>
+          <button class="tab-btn" data-auth-tab="signup">Create Account</button>
+        </div>
+
+        <form id="loginForm" class="glass-card auth-form active">
+          <div class="section-head">
+            <h2>Welcome back</h2>
+            <p>Access your store operations in seconds.</p>
+          </div>
+          <label>
+            <span>Phone or Email</span>
+            <input type="text" name="identifier" placeholder="9876543210 or owner@shop.com" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Enter secure password" required />
+          </label>
+          <button type="submit" class="primary-btn">Login</button>
+        </form>
+
+        <form id="signupForm" class="glass-card auth-form">
+          <div class="section-head">
+            <h2>Create your account</h2>
+            <p>Set up your digital manager professionally.</p>
+          </div>
+          <label>
+            <span>Owner Name</span>
+            <input type="text" name="ownerName" placeholder="Rahul Traders" required />
+          </label>
+          <label>
+            <span>Shop Name</span>
+            <input type="text" name="shopName" placeholder="ShopSmart Super Store" required />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" placeholder="9876543210" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="owner@shop.com" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Create strong password" required />
+          </label>
+          <button type="submit" class="primary-btn">Create Account</button>
+        </form>
+      </section>
+
+      <section id="appView" class="screen app-screen">
+        <header class="topbar glass-card">
+          <div>
+            <p class="eyebrow">Business Control Center</p>
+            <h2 id="welcomeText">Welcome</h2>
+          </div>
+          <button id="logoutBtn" class="ghost-btn">Logout</button>
+        </header>
+
+        <section id="dashboardPage" class="page active page-scroll">
+          <div class="metric-grid">
+            <article class="metric-card glass-card">
+              <span>Total Outstanding</span>
+              <strong id="totalOutstanding">₹0</strong>
+              <small>Live pending balance</small>
+            </article>
+            <article class="metric-card glass-card accent-card">
+              <span>Collected This Month</span>
+              <strong id="totalCollected">₹0</strong>
+              <small>Updated from payments</small>
+            </article>
+          </div>
+
+          <article class="glass-card insight-card">
+            <div class="section-head inline">
+              <div>
+                <h3>Performance Snapshot</h3>
+                <p>Daily business visibility with date-wise entries.</p>
+              </div>
+              <span id="todayDate" class="badge"></span>
+            </div>
+            <div class="mini-stats">
+              <div>
+                <span>Customers</span>
+                <strong id="customerCount">0</strong>
+              </div>
+              <div>
+                <span>Pending Bills</span>
+                <strong id="billCount">0</strong>
+              </div>
+              <div>
+                <span>Notes</span>
+                <strong id="noteCount">0</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card activity-card">
+            <div class="section-head inline">
+              <div>
+                <h3>Recent Activity</h3>
+                <p>Latest bills and payment updates.</p>
+              </div>
+            </div>
+            <div id="activityList" class="stack-list empty-state">
+              Start by adding a customer and the first pending bill.
+            </div>
+          </article>
+        </section>
+
+        <section id="customersPage" class="page page-scroll">
+          <article class="glass-card form-card">
+            <div class="section-head">
+              <h3>Add Customer</h3>
+              <p>Store core details with notes for follow-up.</p>
+            </div>
+            <form id="customerForm" class="stack-form">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Customer name" required />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" placeholder="9876543210" required />
+              </label>
+              <label>
+                <span>Address</span>
+                <textarea name="address" rows="2" placeholder="Street, area, city" required></textarea>
+              </label>
+              <label>
+                <span>Notes</span>
+                <textarea name="notes" rows="2" placeholder="Preferred payment date, product notes"></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Save Customer</button>
+            </form>
+          </article>
+
+          <article class="glass-card list-card">
+            <div class="section-head inline">
+              <div>
+                <h3>Customer Ledger</h3>
+                <p>Call, remind, and review dues quickly.</p>
+              </div>
+            </div>
+            <div id="customerList" class="stack-list empty-state">No customers added yet.</div>
+          </article>
+        </section>
+
+        <section id="billsPage" class="page page-scroll">
+          <article class="glass-card form-card">
+            <div class="section-head">
+              <h3>Add Pending Bill</h3>
+              <p>Create date-wise entries with auto balance tracking.</p>
+            </div>
+            <form id="billForm" class="stack-form">
+              <label>
+                <span>Customer</span>
+                <select name="customerId" id="billCustomerSelect" required></select>
+              </label>
+              <label>
+                <span>Bill Date</span>
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                <span>Bill Amount</span>
+                <input type="number" min="0" step="0.01" name="amount" placeholder="0.00" required />
+              </label>
+              <label>
+                <span>Notes</span>
+                <textarea name="notes" rows="2" placeholder="Items or credit note"></textarea>
+              </label>
+              <button type="submit" class="primary-btn">Add Bill</button>
+            </form>
+          </article>
+
+          <article class="glass-card form-card compact">
+            <div class="section-head">
+              <h3>Update Payment</h3>
+              <p>Reduce the pending bill with live totals.</p>
+            </div>
+            <form id="paymentForm" class="stack-form">
+              <label>
+                <span>Select Bill</span>
+                <select name="billId" id="paymentBillSelect" required></select>
+              </label>
+              <label>
+                <span>Payment Amount</span>
+                <input type="number" min="0" step="0.01" name="payment" placeholder="0.00" required />
+              </label>
+              <button type="submit" class="primary-btn secondary-glow">Record Payment</button>
+            </form>
+          </article>
+
+          <article class="glass-card list-card">
+            <div class="section-head inline">
+              <div>
+                <h3>Pending Bills</h3>
+                <p>Outstanding bills with progress indicators.</p>
+              </div>
+            </div>
+            <div id="billList" class="stack-list empty-state">No bills created yet.</div>
+          </article>
+        </section>
+
+        <section id="entriesPage" class="page page-scroll">
+          <article class="glass-card form-card compact">
+            <div class="section-head">
+              <h3>Date-wise Entries</h3>
+              <p>Filter all bill activity by selected day.</p>
+            </div>
+            <form id="entryFilterForm" class="stack-form inline-form">
+              <label>
+                <span>Select Date</span>
+                <input type="date" id="entryDate" />
+              </label>
+            </form>
+          </article>
+
+          <article class="glass-card list-card">
+            <div class="section-head inline">
+              <div>
+                <h3>Entries</h3>
+                <p>Bill records for the chosen date.</p>
+              </div>
+              <span id="filteredTotal" class="badge">₹0</span>
+            </div>
+            <div id="entryList" class="stack-list empty-state">Choose a date to view entries.</div>
+          </article>
+        </section>
+
+        <section id="settingsPage" class="page page-scroll">
+          <article class="glass-card profile-card">
+            <div class="section-head">
+              <h3>Account Center</h3>
+              <p>Manage your secure store account professionally.</p>
+            </div>
+            <div id="accountSummary" class="account-summary"></div>
+            <div class="action-grid">
+              <button id="settingsLogoutBtn" class="ghost-btn full">Logout</button>
+              <button id="deleteAccountBtn" class="danger-btn full">Delete Account</button>
+            </div>
+          </article>
+
+          <article class="glass-card store-card">
+            <div class="section-head">
+              <h3>App Store Description</h3>
+              <p>Prepared for your premium product positioning.</p>
+            </div>
+            <p class="store-copy">
+              ShopSmart AI is not just a digital khata. It is a Digital Manager designed to help modern shopkeepers operate with the intelligence, speed, and confidence of large commerce brands. From customer credit tracking and payment recovery to future-ready Vision AI for stock, Voice AI for billing, and Predictive AI for profit growth, ShopSmart AI transforms everyday shop data into business power. It helps small stores compete with big e-commerce players by putting professional tools, automation, and decision-making intelligence directly into the shopkeeper's hand.
+            </p>
+          </article>
+        </section>
+
+        <nav class="bottom-nav glass-card">
+          <button class="nav-btn active" data-page="dashboardPage">Home</button>
+          <button class="nav-btn" data-page="customersPage">Customers</button>
+          <button class="nav-btn" data-page="billsPage">Bills</button>
+          <button class="nav-btn" data-page="entriesPage">Entries</button>
+          <button class="nav-btn" data-page="settingsPage">Account</button>
+        </nav>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <div id="confirmModal" class="modal-backdrop hidden">
+    <div class="modal glass-card">
+      <h3>Delete account?</h3>
+      <p>
+        This will remove your saved profile, customers, bills, and activity from this device.
+      </p>
+      <div class="modal-actions">
+        <button id="cancelDeleteBtn" class="ghost-btn full">Cancel</button>
+        <button id="confirmDeleteBtn" class="danger-btn full">Delete Permanently</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
